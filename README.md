@@ -20,7 +20,7 @@
    ```
 3. Запустите бота:
    ```bash
-   python llm_telebot.py
+   python llm_bot.py
    ```
 
 ## Конфигурация
