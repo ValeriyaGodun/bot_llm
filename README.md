@@ -31,8 +31,7 @@
 
 * `telegram_token`, `hf_token` - обязательные токены, без них запуск запрещается;
 * `max_new_tokens`, `temperature`, `top_p`, `repetition_penalty` - настройка генерации;
-* `history_max_pairs`, `history_max_tokens`, `history_ttl_seconds` - ограничения истории и её времени жизни (TTL);
-* `model_device` оставлен для сценария, когда модель будет запускаться локально.
+* `history_max_pairs`, `history_max_tokens`, `history_ttl_seconds` - ограничения истории и её времени жизни (TTL).
 
 ## Основная рхитектура
 
