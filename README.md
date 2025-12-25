@@ -33,13 +33,13 @@
 * `max_new_tokens`, `temperature`, `top_p`, `repetition_penalty` - настройка генерации;
 * `history_max_pairs`, `history_max_tokens`, `history_ttl_seconds` - ограничения истории и её времени жизни (TTL).
 
-## Основная рхитектура
+## Основная архитектура
 
 1. Пользователь отправляет сообщение и `python-telegram-bot` вызывает `handle_message`.
 2. `handle_message` проверяет текст, показывает индикатор набора (`ChatAction.TYPING`) и передаёт задачу дальше `loop.run_in_executor(None, generate_response, ...)`. 
 3. Функция `generate_response` запускается в отдельном потоке, чтобы не блокировать основной, пока идёт запрос к Hugging Face.`generate_response`:
    - записывает сообщение пользователя в `ConversationManager`;
-   - собирает историю (`ConversationManager.get_history`);
+   - собирает историю `ConversationManager.get_history`;
    - обращается к `InferenceClient.chat.completions.create`;
    - очищает ответ от `<think>` и сохраняет  реплику ассистента в историю.
 4. Telegram-бот отправляет ответ пользователю.
